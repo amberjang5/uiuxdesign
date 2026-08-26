@@ -400,15 +400,17 @@
     );
   }
 
-  function reflectionBlock(paragraphs, img) {
-    var cards = paragraphs.map(function (p) { return '<div class="reflection-card"><p>' + p + "</p></div>"; }).join("");
-    return (
-      '<div class="detail-block reveal" style="display:grid;grid-template-columns:1.3fr 0.8fr;gap:28px;align-items:center">' +
-      "<div>" + cards + "</div>" +
-      '<div></div>' +
-      "</div>"
-    );
-  }
+function reflectionBlock(paragraphs, img) {
+  var cards = paragraphs.map(function (p) {
+    return '<div class="reflection-card"><p>' + p + '</p></div>';
+  }).join("");
+
+  return (
+    '<div class="detail-block reveal reflection-full">' +
+      '<div>' + cards + '</div>' +
+    '</div>'
+  );
+}
 
   /* ------------------------------------------------------------------ */
   /* Page renderers                                                      */
