@@ -405,7 +405,7 @@
     return (
       '<div class="detail-block reveal" style="display:grid;grid-template-columns:1.3fr 0.8fr;gap:28px;align-items:center">' +
       "<div>" + cards + "</div>" +
-      '<div><img src="images/' + img + '" alt="" style="border-radius:20px;border:1px solid var(--border-soft)"></div>' +
+      '<div></div>' +
       "</div>"
     );
   }
