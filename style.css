@@ -244,10 +244,8 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 .behance-cta { display: inline-block; padding: 14px 26px; border-radius: 999px; background: var(--ink); color: var(--card); font-size: 14px; font-weight: 600; transition: transform 0.2s, background 0.2s; }
 .behance-cta:hover { transform: scale(1.05); background: var(--accent); color: var(--card); }
 .reflection-full {
-  width: 100vw;
+  width: 100%;
   max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
 }
 
 /* Footer */
