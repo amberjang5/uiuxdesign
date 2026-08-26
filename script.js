@@ -655,7 +655,7 @@ function reflectionBlock(paragraphs, img) {
       '<section class="detail-section">' +
       detailHeader("prime") +
       block("Background", null, '<div class="three-col">' + bgCards + "</div>") +
-      block("User Survey (n=67)", PRIME_SURVEY.note, '<div class="three-col">' + surveyCards + "</div>") +
+      block("User Survey", PRIME_SURVEY.note, '<div class="three-col">' + surveyCards + "</div>") +
       block("Competitor Analysis", PRIME_COMPETITOR.note,
         '<div class="two-col">' +
         '<div><h4 style="font-size:15px;margin:0 0 10px">Netflix</h4><div style="display:flex;flex-direction:column;gap:8px">' + nfChips + "</div></div>" +
