@@ -243,6 +243,12 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 .decision-card p { font-size: 14.5px; line-height: 1.75; color: rgba(47,42,38,0.7); margin: 0; }
 .behance-cta { display: inline-block; padding: 14px 26px; border-radius: 999px; background: var(--ink); color: var(--card); font-size: 14px; font-weight: 600; transition: transform 0.2s, background 0.2s; }
 .behance-cta:hover { transform: scale(1.05); background: var(--accent); color: var(--card); }
+.reflection-full {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
 
 /* Footer */
 .site-footer { max-width: 1120px; margin: 40px auto 56px; padding: 0 32px; width: 100%; box-sizing: border-box; }
