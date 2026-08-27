@@ -37,8 +37,8 @@
   );
 
   var CAREER = {
-    company: "efusioni · 이퓨전아이",
-    role: "Commerce Planning Team, Associate · 커머스기획팀 주임",
+    company: bi("efusioni", "이퓨전아이"),
+    role: bi("Commerce Planning Team, Associate", "커머스기획팀 주임"),
     period: bi("2023.07 — 2025.10 (2 yr 4 mo)", "2023.07 — 2025.10 (2년 4개월)"),
     bullets: [
       bi("Managed event planning design and system operations for a corporate group's employee shopping mall for about 2 years and 4 months", "약 2년 4개월간 대기업 계열 임직원 쇼핑몰 기획행사 디자인, 시스템 운영 담당"),
@@ -186,7 +186,7 @@
       '<section class="resume-section" style="border-top:none;padding-top:0">' + aboutHtml + "</section>" +
       '<section class="resume-section">' +
       '<div class="kicker">' + t(LABELS.career) + '</div>' +
-      '<div class="career-meta" style="margin-bottom:16px"><span class="company">' + CAREER.company + '</span><span class="role">' + CAREER.role + '</span><span class="period">' + t(CAREER.period) + "</span></div>" +
+      '<div class="career-meta" style="margin-bottom:16px"><span class="company">' + t(CAREER.company) + '</span><span class="role">' + t(CAREER.role) + '</span><span class="period">' + t(CAREER.period) + "</span></div>" +
       "<ul style=\"margin:0 0 28px;padding-left:20px;font-size:14.5px;line-height:1.9;color:var(--muted-78)\">" + CAREER.bullets.map(function (b) { return "<li>" + t(b) + "</li>"; }).join("") + "</ul>" +
       '<div class="section-sub serif" style="font-size:17px;margin-bottom:16px">' + t(LABELS.competencies) + "</div>" +
       '<div class="competency-grid" style="grid-template-columns:repeat(2,1fr);margin-bottom:24px">' + competencies + "</div>" +

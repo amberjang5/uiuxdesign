@@ -93,8 +93,8 @@
   var CAREER_TITLE = bi("Shopping Mall Service Maintenance", "쇼핑몰 서비스 유지보수");
   var CAREER_VIEW_RESUME = bi("View Career Résumé ↗", "경력기술서 보러가기 ↗");
   var CAREER = {
-    company: "efusioni · 이퓨전아이",
-    role: "Commerce Planning Team, Associate · 커머스기획팀 주임",
+    company: bi("efusioni", "이퓨전아이"),
+    role: bi("Commerce Planning Team, Associate", "커머스기획팀 주임"),
     period: bi("2023.07 — 2025.10 (2 yr 4 mo)", "2023.07 — 2025.10 (2년 4개월)"),
     bullets: [
       bi("Managed event planning design and system operations for a corporate group's employee shopping mall for about 2 years and 4 months", "약 2년 4개월간 대기업 계열 임직원 쇼핑몰 기획행사 디자인, 시스템 운영 담당"),
@@ -393,7 +393,7 @@
     bi("Since rising electricity rates are an issue every citizen experiences directly, I decided transparency mattered more than concealment, so I set “trust” as the renewal's core direction and redefined the plan around a structure that communicates the key issues clearly.",
       "전기료 인상은 모든 국민이 직접 경험하는 이슈이기에 숨기기보다 투명하게 전달하는 것이 중요하다고 판단해, 리뉴얼의 핵심 방향을 '신뢰'로 설정하고 주요 이슈를 명확하게 전달하는 구조로 기획을 재정의했습니다.")
   ];
-  var KEPCO_SHOWCASE = ["kepco-showcase-1.jpg", "kepco-showcase-2-static.jpg", "kepco-showcase-3.jpg", "kepco-showcase-4.jpg",
+  var KEPCO_SHOWCASE = ["kepco-showcase-1.jpg", "kepco-hero.jpg", "kepco-showcase-3.jpg", "kepco-showcase-4.jpg",
     "kepco-showcase-5.jpg", "kepco-showcase-6.jpg", "kepco-showcase-7.jpg", "kepco-showcase-8.jpg"];
 
   /* ------------------------------------------------------------------ */
@@ -518,14 +518,9 @@
     );
   }
 
-  function reflectionBlock(paragraphs, img) {
-    var cards = paragraphs.map(function (p) { return '<div class="reflection-card"><p>' + t(p) + "</p></div>"; }).join("");
-    return (
-      '<div class="detail-block reveal" style="display:grid;grid-template-columns:1.3fr 0.8fr;gap:28px;align-items:center">' +
-      "<div>" + cards + "</div>" +
-      '<div><img src="images/' + img + '" alt="" style="border-radius:20px;border:1px solid var(--border-soft)"></div>' +
-      "</div>"
-    );
+  function reflectionBlock(paragraphs) {
+    var paras = paragraphs.map(function (p) { return "<p>" + t(p) + "</p>"; }).join("");
+    return '<div class="detail-block reveal"><div class="reflection-card">' + paras + "</div></div>";
   }
 
   /* ------------------------------------------------------------------ */
@@ -533,7 +528,7 @@
   /* ------------------------------------------------------------------ */
 
   function renderHome() {
-    var tags = WORKING_STYLE.map(function (w) { return '<div class="style-tag">' + w.ko + ' <span>' + w.en + "</span></div>"; }).join("");
+    var tags = WORKING_STYLE.map(function (w) { return '<div class="style-tag">' + (state.lang === "ko" ? w.ko : w.en) + "</div>"; }).join("");
     var cards = ABOUT_CARDS.map(function (c) {
       return '<div class="about-card reveal"><div class="about-num">' + c.no + '</div><h3>' + t(c.title) + "</h3><p>" + t(c.body) + "</p></div>";
     }).join("");
@@ -590,7 +585,7 @@
       '<div class="kicker">Career</div>' +
       '<div class="career-header-row"><h2 class="section-title serif" style="margin-bottom:0">' + t(CAREER_TITLE) + "</h2>" +
       '<a class="back-btn" href="' + CAREER_RESUME_URL + '" target="_blank" style="margin-bottom:0">' + t(CAREER_VIEW_RESUME) + "</a></div>" +
-      '<div class="career-meta"><span class="company">' + CAREER.company + '</span><span class="role">' + CAREER.role + '</span><span class="period">' + t(CAREER.period) + "</span></div>" +
+      '<div class="career-meta"><span class="company">' + t(CAREER.company) + '</span><span class="role">' + t(CAREER.role) + '</span><span class="period">' + t(CAREER.period) + "</span></div>" +
       "<ul>" + CAREER.bullets.map(function (b) { return "<li>" + t(b) + "</li>"; }).join("") + "</ul>" +
       "</section>" +
       '<section class="reveal" style="padding-bottom:8px">' +
@@ -740,7 +735,7 @@
         bi("As a registered schedule date approaches, a notification with a packing checklist for the course is sent to the user one day in advance.", "등록된 스케줄 날짜가 다가오면 하루 전에 코스에 맞는 준비물 리스트를 사용자에게 알림으로 보내줍니다.")
       ], images: ["maeari-schedule-members.webp", "maeari-schedule-list.webp"] }) +
       block(L2.reflection, null, "") +
-      reflectionBlock(MAEARI_REFLECTION, "maeari-hero.jpg") +
+      reflectionBlock(MAEARI_REFLECTION) +
       behanceCta("maeari") +
       "</section>"
     );
@@ -777,7 +772,7 @@
       '<section class="detail-section">' +
       detailHeader("prime") +
       block(L2.background_survey, null, '<div class="three-col">' + bgCards + "</div>") +
-      block(bi("User Survey (n=67)", "사용자 서베이 (n=67)"), PRIME_SURVEY.note, '<div class="three-col">' + surveyCards + "</div>") +
+      block(bi("User Survey", "사용자 서베이"), PRIME_SURVEY.note, '<div class="three-col">' + surveyCards + "</div>") +
       block(L2.competitor, PRIME_COMPETITOR.note,
         '<div class="two-col">' +
         '<div><h4 style="font-size:15px;margin:0 0 10px">Netflix</h4><div style="display:flex;flex-direction:column;gap:8px">' + nfChips + "</div></div>" +
@@ -792,7 +787,7 @@
         bi("Find Originals available only on Prime Video, all gathered in one place.", "프라임 비디오에서만 볼 수 있는 오리지널 콘텐츠를 한 곳에 모았어요."),
         bi("Easily pick the genre you want from text-style buttons that fit within a single scroll.", "여러 장르 중 원하는 장르를 한 스크롤 안에서 쉽게 골라보세요."),
         bi("Not sure if this content fits your taste? Try it out first in short-form.", "이 콘텐츠가 내 취향에 맞을까요? 숏폼 미리보기로 먼저 확인해보세요.")
-      ], images: ["prime-home-3.webp"] }) +
+      ], images: ["prime-home-4.webp"] }) +
       stepBoard({ tag: L2.profile_board, title: bi("Build a Profile That's Safe and Fun", "나만의 안전하고 즐거운 프로필 만들기"), cols: 4,
         desc: bi("After logging in, easily create your own profile. Kids Profiles filter out violent content so children can watch safely.", "로그인 후, 자신만의 프로필을 쉽게 만들어보세요. 어린이를 위한 키즈 프로필은 폭력적인 콘텐츠를 걸러내어 안전하게 이용할 수 있습니다."),
         steps: [
@@ -824,7 +819,7 @@
           { img: "prime-sports-4.webp", text: bi("You can also pin a game from Today's Game — pin any match you don't want to miss today.", "Today's Game에서도 핀을 꽂을 수 있어요. 오늘 놓치고 싶지 않은 경기의 스코어를 확인해 보세요.") }
         ] }) +
       block(L2.reflection, null, "") +
-      reflectionBlock(PRIME_REFLECTION, "prime-show-11.webp") +
+      reflectionBlock(PRIME_REFLECTION) +
       behanceCta("prime") +
       "</section>"
     );
@@ -851,7 +846,7 @@
       block(L2.decisions, null, decisionCards) +
       block(L2.finaldesign, null, '<div class="showcase-stack">' + showcase + "</div>") +
       block(L2.reflection, null, "") +
-      reflectionBlock(KEPCO_REFLECTION, "kepco-hero.jpg") +
+      reflectionBlock(KEPCO_REFLECTION) +
       behanceCta("kepco") +
       "</section>"
     );
@@ -865,7 +860,6 @@
   var navPills = document.getElementById("navPills");
   var langToggle = document.getElementById("langToggle");
   var navPillsMobile = document.getElementById("navPillsMobile");
-  var langToggleMobile = document.getElementById("langToggleMobile");
   var hamburgerBtn = document.getElementById("hamburgerBtn");
   var mobileMenu = document.getElementById("mobileMenu");
 
@@ -891,7 +885,6 @@
       '<button class="' + (state.lang === "en" ? "active" : "") + '" onclick="app.setLang(\'en\')">EN</button>' +
       '<button class="' + (state.lang === "ko" ? "active" : "") + '" onclick="app.setLang(\'ko\')">KR</button>';
     if (langToggle) langToggle.innerHTML = langHtml;
-    if (langToggleMobile) langToggleMobile.innerHTML = langHtml;
   }
 
   function render() {
