@@ -36,7 +36,8 @@
   var BEHANCE_URLS = {
     maeari: { en: "https://www.behance.net/gallery/226604539/MAEARI-Hiking-community-app-UXUI-design", ko: "https://www.behance.net/gallery/173653843/Hiking-Community-App-MAEARI" },
     prime: { en: "https://www.behance.net/gallery/227152215/Amazon-Prime-Video-App-UXUI-Renewal-Project", ko: "https://www.behance.net/gallery/223563343/Amazon-Prime-Video-App-Renewal-Project-UXUI-Redesign" },
-    kepco: { en: "https://www.behance.net/gallery/226632259/KEPCO-Website-UIUX-design-Renewal", ko: "https://www.behance.net/gallery/173648713/UIUX-design-KEPCO-Website-Renewal" }
+    kepco: { en: "https://www.behance.net/gallery/226632259/KEPCO-Website-UIUX-design-Renewal", ko: "https://www.behance.net/gallery/173648713/UIUX-design-KEPCO-Website-Renewal" },
+    kyobo: { en: "https://www.behance.net/gallery/226633967/Kyobo-bookstore-website-UIUX-design-renewal", ko: "https://www.behance.net/gallery/173651477/UXUI-designKyobo-Book-Website-Renewal-Project" }
   };
 
   var NAV = [
@@ -46,7 +47,7 @@
     { id: "education", label: "Education" },
     { id: "activities", label: "Activities" }
   ];
-  var PROJECT_DETAIL_PAGES = ["maeari", "prime", "kepco"];
+  var PROJECT_DETAIL_PAGES = ["maeari", "prime", "kepco", "kyobo"];
 
   /* ------------------------------------------------------------------ */
   /* Data                                                                 */
@@ -171,7 +172,11 @@
     { id: 3, no: "03", type: "web", tag: "Website Renewal", name: "KEPCO Energy", title: bi("KEPCO Website", "한국전력공사 웹사이트"),
       desc: bi("Renewed the UI/UX of the Korea Electric Power Corporation official website.", "한국전력공사 공식 웹사이트의 UI/UX를 리뉴얼했습니다."),
       bullets: [bi("A visual identity that builds trust", "신뢰감 있는 비주얼 아이덴티티"), bi("Structure and navigation that make vast amounts of information easy to find", "방대한 정보를 쉽게 찾는 구조·내비게이션")],
-      key: "kepco" }
+      key: "kepco" },
+    { id: 4, no: "04", type: "web", tag: "Website Renewal", name: "Kyobo Book Centre", title: bi("Kyobo Books Website Renewal", "교보문고 웹사이트 리뉴얼"),
+      desc: bi("Reorganized Kyobo Book Centre's homepage so its wide range of digital content is easy to browse and discover.", "교보문고가 보유한 다양한 디지털 콘텐츠를 메인 페이지에서 쉽게 둘러보고 발견할 수 있도록 재구성했습니다."),
+      bullets: [bi("Simplified confusing service names into intuitive navigation", "이해하기 어려운 서비스 명칭을 직관적인 내비게이션으로 정리"), bi("Reordered the homepage around book content and personalized recommendations", "책 콘텐츠와 개인화 추천 중심으로 메인 페이지 구조를 재배열")],
+      key: "kyobo" }
   ];
   var PROJECT_CTA = bi("View Case Study →", "케이스 스터디 보기 →");
 
@@ -257,12 +262,22 @@
     kepco: { name: "KEPCO Energy", tag: "Website Renewal", hero: "kepco-hero.jpg",
       title: bi("KEPCO Website Renewal", "한국전력공사 웹사이트 리뉴얼"), desc: bi("Redesigned KEPCO's information structure and visuals with the goal of restoring trust and disclosing information transparently.", "신뢰 회복과 투명한 정보 공개를 목표로 한국전력공사 공식 웹사이트의 정보 구조와 비주얼을 재설계했습니다."),
       meta: [
-        { label: "Role", value: bi("UX Research · Website Analysis · IA · UI Design", "UX 리서치 · 웹사이트 분석 · IA · UI 디자인") },
+        { label: "Role", value: bi("UX Research · Website Analysis · UI Design", "UX 리서치 · 웹사이트 분석 · UI 디자인") },
         { label: "Period", value: bi("2023.06 (4 weeks)", "2023.06 (4주)") },
         { label: "Tools", value: "Figma · Photoshop · Illustrator" },
         { label: "Type", value: bi("Website Renewal", "웹사이트 리뉴얼") },
         { label: "Contribution", value: bi("Planning 100% · Design 100%", "기획 100% · 디자인 100%") },
         { label: "Team", value: bi("4 people (planning shared / design individual)", "4명 (기획 공동 / 디자인 개인)") }
+      ] },
+    kyobo: { name: "Kyobo Book Centre", tag: "Website Renewal", hero: "kyobo-hero.jpg",
+      title: bi("Kyobo Books Website Renewal", "교보문고 웹사이트 리뉴얼"), desc: bi("Redesigned Kyobo Book Centre's main page so its wide range of digital content is easy to discover, after Korea's adult reading rate declined and browsing habits shifted toward video.", "독서율 하락과 영상 콘텐츠 중심의 여가 트렌드 속에서, 교보문고가 보유한 다양한 디지털 콘텐츠를 메인 페이지에서 쉽게 발견할 수 있도록 재설계했습니다."),
+      meta: [
+        { label: "Role", value: bi("UX Research · Website Analysis · UI Design", "UX 리서치 · 웹사이트 분석 · UI 디자인") },
+        { label: "Period", value: "2023.03 – 04" },
+        { label: "Tools", value: "Photoshop · Illustrator · VS Code" },
+        { label: "Type", value: bi("Website Renewal", "웹사이트 리뉴얼") },
+        { label: "Contribution", value: bi("Planning 100% · Design 100%", "기획 100% · 디자인 100%") },
+        { label: "Team", value: bi("1 person (solo project)", "1명 (개인 프로젝트)") }
       ] }
   };
 
@@ -396,12 +411,41 @@
   var KEPCO_SHOWCASE = ["kepco-showcase-1.jpg", "kepco-hero.jpg", "kepco-showcase-3.jpg", "kepco-showcase-4.jpg",
     "kepco-showcase-5.jpg", "kepco-showcase-6.jpg", "kepco-showcase-7.jpg", "kepco-showcase-8.jpg"];
 
+  var KYOBO_OVERVIEW = bi(
+    "Korea's adult reading rate is declining, and people in their 20s–30s are filling their leisure time with video content instead of books. Kyobo Book Centre has also identified digital transformation as a core challenge and now holds a large amount of digital content such as audiobooks and e-books — but the website's confusing wording and complex information structure make that content hard to access. This is a website renewal project that reorganizes Kyobo's diverse digital content so it's easy to discover from the main page.",
+    "우리나라 성인의 독서율이 떨어지고 2030은 독서 대신 영상 콘텐츠를 보며 여가 시간을 채웁니다. 교보문고 역시 디지털 전환을 핵심 과제로 선정하며 오디오북, 전자책 등 디지털 콘텐츠를 많이 보유하고 있으나 웹사이트의 이해하기 어려운 표현, 복잡한 정보 구성으로 인해 접근성이 낮습니다. 따라서 교보문고가 가지고 있는 다양한 디지털 콘텐츠를 메인 페이지에서 보기 쉽게 개선한 웹사이트 리뉴얼 프로젝트입니다."
+  );
+  var KYOBO_GOAL = bi(
+    "A Kyobo Book Centre website that offers people in their 20s–30s who want to explore diverse digital content a clean, well-organized navigation and information structure.",
+    "다양한 디지털 콘텐츠를 보고 싶은 2030에게 깔끔하게 정리된 네비게이션과 정보 분류를 제공하는 교보문고 웹사이트"
+  );
+  var KYOBO_BANNER = [
+    { tag: bi("Search Box", "검색창"), desc: bi("Because the site holds such a large amount of content, I moved the search bar into the navigation so users can search the moment they land on the site.", "컨텐츠의 양이 방대하기 때문에 검색창을 네비게이션에 올려 사용자가 웹사이트에 들어오자마자 검색할 수 있도록 기획하였습니다."), images: ["kyobo-banner-search.jpg"] },
+    { tag: bi("Writing", "명칭 정리"), desc: bi("I renamed confusing service names like Toksoda, sam, and Story into more intuitive labels, and added a menu that introduces what each one means.", "톡소다, sam, 스토리 등 사용자들이 이해하기 어려워하는 명칭을 직관적으로 변경하고 명칭에 대해 소개하는 메뉴를 추가하였습니다.") },
+    { tag: bi("Banner Design", "배너 디자인"), desc: bi("I designed a rolling banner that introduces books.", "책을 소개하는 롤링 배너를 디자인했습니다."), images: ["kyobo-banner-rolling.jpg"] },
+    { tag: bi("Books", "책"), desc: bi("Showing Kyobo's wide range of content matters, but since this is fundamentally a bookstore site, I placed book content near the top.", "교보문고의 다양한 컨텐츠를 보여주는 것도 중요하지만 기본적으로 도서 사이트이기 때문에 책 콘텐츠를 상단에 배치했습니다."), images: ["kyobo-banner-books.jpg"] },
+    { tag: bi("PICKS", "PICKS"), desc: bi("I placed PICKS, a personalized book recommendation service, in the third row to show that Kyobo offers the kind of personalization video platforms are known for, strengthening its competitiveness.", "취향에 맞는 책 추천 서비스인 PICK를 3단에 배치하여 영상 컨텐츠 플랫폼에서 활용하는 개인화 서비스를 교보문고에서도 제공하고 있음을 알리고 경쟁력을 높이고자 하였습니다.") },
+    { tag: bi("Kyobo Live", "교보 Live"), desc: bi("I highlighted Kyobo Live to emphasize its role as a cultural hub, and surfaced related books alongside it so viewers could go on to purchase them.", "종합문화공간으로서의 면모를 강조하고 관련도서를 노출하여 책 구매로도 이어질 수 있도록 했습니다."), images: ["kyobo-banner-live.jpg"] },
+    { tag: bi("Web Novels", "웹소설"), desc: bi("Korea's web novel market has been steadily growing, and it grew even faster after COVID-19. To show that Kyobo also carries plenty of great web novels, I placed a web novel section in the fifth row.", "국내 웹소설 시장 규모는 점점 커지고 있으며 코로나19를 기점으로 훨씬 더 커졌습니다. 교보문고에도 재미있는 웹소설이 많음을 보여주고자 5단에 웹소설을 배치하였습니다."), images: ["kyobo-banner-webnovel.jpg"] },
+    { tag: bi("Story", "스토리"), desc: bi("Kyobo produces original content through a submission platform called Story, and some winning entries have already been adapted into dramas. I placed this in the sixth row to showcase the range of content Kyobo offers.", "교보문고는 스토리라는 공모 시스템을 통해 교보문고 오리지널 컨텐츠를 만듭니다. 이미 드라마로 만들어진 공모작이 존재합니다. 이를 6단에 배치하여 다양한 컨텐츠를 보여주고자 합니다.") },
+    { tag: bi("Review", "리뷰"), desc: bi("I surfaced book reviews in the seventh row so people can see what others are reading, share opinions on books, and get help deciding what to buy.", "사람들이 많이 읽는 책을 확인하고 책에 대한 의견을 나누며 구매에 도움이 될 수 있도록 책 리뷰를 7단에 노출하였습니다."), images: ["kyobo-banner-review.jpg"] },
+    { tag: bi("Footer", "푸터"), desc: bi("Since this is a book shopping site, I placed the essential elements it needs along with Kyobo's social channels and related sites in the footer to improve usability.", "도서 쇼핑몰이기 때문에 꼭 들어가야 하는 요소들과 교보 SNS, 관련 사이트를 푸터에 배치하여 사용성을 높였습니다."), images: ["kyobo-banner-footer.jpg"] }
+  ];
+  var KYOBO_REFLECTION = [
+    bi("In this project, I completed both the design and the publishing, then discovered a problem during the refinement stage that sent me back to the planning phase. Early on, following the same approach I'd used on other projects, I emphasized brand identity with a bold design that stretched the main visual wide across both sides of the screen. But when I applied the same approach to Kyobo, the core content — books — didn't get enough visibility.",
+      "이 프로젝트는 디자인과 퍼블리싱까지 완료한 이후, 고도화 과정에서 문제를 발견하며 기획 단계로 되돌아간 경험입니다. 초기에는 다른 프로젝트와 동일하게 브랜드 정체성을 강조하기 위해, 메인 비주얼을 양옆으로 넓게 활용한 화려한 디자인을 적용했습니다. 그러나 교보문고에 동일한 방식을 적용했을 때, 핵심 콘텐츠인 '책'이 충분히 드러나지 않는 문제가 발생했습니다."),
+    bi("To find the root cause, I re-analyzed other bookstore sites and found that most of them used narrow, information-focused banners instead of bold visuals. This led me to redefine the core of the Kyobo site: not ‘expressing the brand’ but ‘delivering book content.’ I then reworked the planning and design from the ground up around a structure that lets the content stand out.",
+      "문제의 원인을 파악하기 위해 타 서점 사이트를 다시 분석한 결과, 대부분 화려한 비주얼 대신 좁은 영역의 정보성 배너를 활용하고 있음을 확인했습니다. 이를 통해 교보문고 사이트의 핵심은 '브랜드 표현'이 아니라 '책 콘텐츠 전달'에 있다는 점을 재정의하게 되었고, 콘텐츠가 잘 드러나는 구조로 기획과 디자인을 전면 수정했습니다."),
+    bi("This experience taught me that even a highly polished design can get in the way if it doesn't fit the service's purpose, and that delivering core content effectively requires designing the right structure from the earliest planning stage.",
+      "이 경험을 통해, 디자인의 완성도가 높더라도 서비스의 목적과 맞지 않으면 오히려 방해가 될 수 있으며, 핵심 콘텐츠를 효과적으로 전달하기 위해서는 초기 기획 단계에서부터 목적에 맞는 구조 설계가 중요하다는 것을 깨달았습니다.")
+  ];
+
   /* ------------------------------------------------------------------ */
   /* State + router                                                      */
   /* ------------------------------------------------------------------ */
 
   var state = { lang: getStoredLang() || "en", page: "home", projFilter: "all", eduFilter: "all", careerExpanded: null, utTab: "first" };
-  var VALID_PAGES = ["home", "career", "projects", "education", "activities", "maeari", "prime", "kepco"];
+  var VALID_PAGES = ["home", "career", "projects", "education", "activities", "maeari", "prime", "kepco", "kyobo"];
 
   function setPage(id) {
     if (location.hash.slice(1) === id) { state.page = id; render(); }
@@ -515,6 +559,15 @@
       '<div class="detail-h3" style="margin-bottom:8px">' + t(opts.title) + "</div>" +
       '<p class="detail-h3-sub">' + t(opts.desc) + "</p>" +
       '<div class="step-grid cols' + opts.cols + '">' + cells + "</div></div>"
+    );
+  }
+
+  function zoomImage(src, alt) {
+    return (
+      '<a class="zoom-img-wrap" href="images/' + src + '" target="_blank" rel="noopener" aria-label="' + (alt || "") + '">' +
+      '<img src="images/' + src + '" alt="' + (alt || "") + '" loading="lazy">' +
+      '<span class="zoom-hint">' + t(bi("Tap to view full size ↗", "탭하여 크게 보기 ↗")) + "</span>" +
+      "</a>"
     );
   }
 
@@ -852,6 +905,35 @@
     );
   }
 
+  function renderKyobo() {
+    var bannerBlocks = KYOBO_BANNER.map(function (b) {
+      if (b.images) {
+        return featureBoard({ tag: b.tag, title: bi("", ""), desc: b.desc, images: b.images });
+      }
+      return '<div class="detail-block reveal" style="margin-bottom:24px"><div class="feature-label">' + t(b.tag) + '</div><p class="feature-desc" style="max-width:640px;margin:0">' + t(b.desc) + "</p></div>";
+    }).join("");
+
+    return (
+      '<section class="detail-section">' +
+      detailHeader("kyobo") +
+      block(bi("Overview", "Overview"), null, '<p class="feature-desc" style="max-width:820px">' + t(KYOBO_OVERVIEW) + "</p>") +
+      block(bi("Desk Research", "Desk Research"), null, zoomImage("kyobo-desk-research.jpg", "Desk research")) +
+      block(bi("SWOT Analysis", "SWOT Analysis"), null, zoomImage("kyobo-swot.jpg", "SWOT analysis")) +
+      block(bi("Website Analysis", "웹사이트 분석"), null, zoomImage("kyobo-website-analysis.jpg", "Website analysis")) +
+      block(bi("Interview", "Interview"), null, zoomImage("kyobo-interview.jpg", "Interview affinity diagram")) +
+      block(bi("AS-IS → TO-BE", "AS-IS → TO-BE"), null, zoomImage("kyobo-as-is-to-be.jpg", "AS-IS to TO-BE")) +
+      block(bi("Project Goal", "Project Goal"), null, '<div class="dark-card"><p style="font-size:16.5px;font-weight:600;line-height:1.7">' + t(KYOBO_GOAL) + "</p></div>") +
+      block(bi("Wireframe", "Wireframe"), null, zoomImage("kyobo-wireframe.jpg", "Wireframe")) +
+      block(bi("Concept", "Concept"), null, zoomImage("kyobo-concept.jpg", "Concept")) +
+      block(bi("Style Guide", "Style Guide"), null, zoomImage("kyobo-style-guide.jpg", "Style guide")) +
+      block(bi("Banner Design", "Banner Design"), null, bannerBlocks) +
+      block(L2.reflection, null, "") +
+      reflectionBlock(KYOBO_REFLECTION) +
+      behanceCta("kyobo") +
+      "</section>"
+    );
+  }
+
   /* ------------------------------------------------------------------ */
   /* Root render + nav + scroll behaviors                                */
   /* ------------------------------------------------------------------ */
@@ -899,6 +981,7 @@
       case "maeari": html = renderMaeari(); break;
       case "prime": html = renderPrime(); break;
       case "kepco": html = renderKepco(); break;
+      case "kyobo": html = renderKyobo(); break;
       default: html = renderHome();
     }
     app.innerHTML = html;
