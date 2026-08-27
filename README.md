@@ -1,12 +1,13 @@
-# Heeyeon Jang — UX/UI Portfolio (English)
+# Heeyeon Jang — UX/UI Portfolio (Bilingual)
 
-A static, framework-free portfolio site (plain HTML/CSS/JS, no build step).
+A static, framework-free portfolio site (plain HTML/CSS/JS, no build step). Every page has an EN / KR toggle in the top right; the chosen language is remembered (via `localStorage`) and carries over between `index.html` and `career.html`.
 
 ## Structure
 
-- `index.html` — page shell (nav, footer, app container)
-- `style.css` — all styles
-- `script.js` — page data, render functions, and hash-based routing
+- `index.html` — main portfolio site: page shell (nav, footer, app container)
+- `script.js` — main site's page data, render functions, and hash-based routing
+- `career.html` + `career.js` — standalone career résumé page (linked from the Career section's "View Career Résumé" button), built in the same design system
+- `style.css` — all styles, shared by both pages
 - `images/` — all screenshots and mockups
 
 ## Run locally

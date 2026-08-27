@@ -11,8 +11,16 @@
 
 <nav class="site-nav">
   <div class="site-nav-inner">
-    <div class="brand">Heeyeon <span>Jang</span></div>
+    <div class="brand">장희연<span>.</span></div>
     <div class="nav-pills" id="navPills"></div>
+    <div class="lang-toggle" id="langToggle"></div>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu" onclick="app.toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="nav-pills" id="navPillsMobile"></div>
+    <div class="lang-toggle" id="langToggleMobile"></div>
   </div>
 </nav>
 
@@ -23,14 +31,14 @@
 <footer class="site-footer">
   <div class="footer-box">
     <div class="footer-top">
-      <h2 class="serif">Let's create meaningful experiences together.</h2>
+      <h2 class="serif" id="footerHeading">Heeyeon Jang, a UX/UI designer who connects planning and design.</h2>
       <div class="footer-links">
-        <a class="solid" href="mailto:amberjang5@gmail.com">amberjang5@gmail.com</a>
+        <a class="solid" id="footerEmail" href="mailto:amberjang5@gmail.com">amberjang5@gmail.com</a>
         <a class="outline" href="https://www.behance.net/kelly3789" target="_blank" rel="noopener">Behance ↗</a>
         <a class="outline" href="https://www.linkedin.com/in/heeyeon-j" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
     </div>
-    <div class="footer-note">© 2026 Heeyeon Jang. All rights reserved.</div>
+    <div class="footer-note">Heeyeon Jang · UX/UI Designer © 2026. Portfolio</div>
   </div>
 </footer>
 
