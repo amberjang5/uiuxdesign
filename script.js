@@ -465,7 +465,7 @@
     colorNote: bi("Since thumbnail colors vary widely across content, I used white as the base so content stays front and center, with gray as a supporting tone and Kyobo's core green as the accent.", "콘텐츠 섬네일의 색이 다양하기 때문에 컨텐츠가 최우선으로 보일 수 있도록 흰 바탕에 그레이를 주로 사용하고 교보문고의 메인 컬러인 초록색을 포인트 컬러로 활용하였습니다."),
     typeNote: bi("Used the highly legible 본고딕 for body text, paired with Poppins and Pretendard for numerals and Latin text.", "가독성이 높은 본고딕을 본문에 사용하고 영문, 숫자는 본고딕과 잘 어울리는 포핀스와 프리텐다드를 사용하였습니다."),
     buttonNote: bi("Used Kyobo's core green with rounded pill buttons to express Kyobo's friendliness.", "교보문고의 메인 컬러인 초록색을 사용하고 둥근 형태의 버튼을 제작하여 교보문고의 친근함을 표현하였습니다."),
-    buttons: [bi("View Details →", "자세히 보기 →"), bi("Watch Video →", "영상 바로가기 →")],
+    buttonImages: ["kyobo-btn-detail.png", "kyobo-btn-video.png", "kyobo-btn-login.png"],
     iconNote: bi("Used Kyobo's navy and green in a clean, friendly, rounded line-icon style.", "교보문고의 메인 컬러인 남색과 초록색을 사용하였고 깔끔함과 친근함을 위해 선 형태의 둥근 아이콘을 작업하였습니다.")
   };
   var KYOBO_BANNER_LEAD = ["kyobo-banner-billboard.jpg", "kyobo-banner-rolling.jpg"];
@@ -676,11 +676,11 @@
 
   function kyoboAgeBarChart() {
     var rows = [
-      { age: "20대", v19: 39.0, v21: 50.5 },
-      { age: "30대", v19: 31.3, v21: 38.4 },
-      { age: "40대", v19: 14.4, v21: 13.8 },
-      { age: "50대", v19: 4.9, v21: 5.2 },
-      { age: "60대+", v19: 2.0, v21: 2.3 }
+      { age: bi("20s", "20대"), v19: 39.0, v21: 50.5 },
+      { age: bi("30s", "30대"), v19: 31.3, v21: 38.4 },
+      { age: bi("40s", "40대"), v19: 14.4, v21: 13.8 },
+      { age: bi("50s", "50대"), v19: 4.9, v21: 5.2 },
+      { age: bi("60s+", "60대+"), v19: 2.0, v21: 2.3 }
     ];
     var max = 55;
     var cols = rows.map(function (r) {
@@ -692,7 +692,7 @@
         '<div style="width:13px;background:#34BE4E;border-radius:4px 4px 0 0;height:' + h21 + '%"></div>' +
         "</div>" +
         '<div style="font-size:10px;font-weight:700;color:rgba(47,42,38,0.55);white-space:nowrap">' + r.v19 + "→" + r.v21 + "</div>" +
-        '<div style="font-size:11.5px;font-weight:600">' + r.age + "</div>" +
+        '<div style="font-size:11.5px;font-weight:600">' + t(r.age) + "</div>" +
         "</div>"
       );
     }).join("");
@@ -737,7 +737,7 @@
       '<p style="font-size:12.5px;line-height:1.65;color:var(--muted-68);margin-top:12px">' + t(bi("Kyobo's offline book sales have been declining, while web and mobile purchases are growing.", "교보문고의 오프라인 책 판매율은 감소하고 웹과 모바일을 통한 구매가 늘어나고 있다.")) + "</p>" +
       "</div>" +
       "</div>" +
-      '<div class="callout-band">' + t(KYOBO_DESK_SUMMARY) + "</div>"
+      '<div class="callout-band" style="margin-top:20px">' + t(KYOBO_DESK_SUMMARY) + "</div>"
     );
   }
 
@@ -816,11 +816,13 @@
       "</div></div>";
     var buttonCard = '<div class="info-card"><div class="info-card-label">' + t(bi("Button", "버튼")) + "</div>" +
       '<p style="font-size:13px;line-height:1.7;color:var(--muted-68);margin:0 0 16px">' + t(KYOBO_STYLE.buttonNote) + "</p>" +
-      '<div style="display:flex;gap:10px;flex-wrap:wrap">' +
-      KYOBO_STYLE.buttons.map(function (b) { return '<div style="background:#34BE4E;color:#fff;padding:10px 18px;border-radius:999px;font-size:12.5px;font-weight:700">' + t(b) + "</div>"; }).join("") +
+      '<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">' +
+      KYOBO_STYLE.buttonImages.map(function (fn) { return '<img src="images/' + fn + '" alt="Button style" style="height:40px;width:auto">'; }).join("") +
       "</div></div>";
     var iconCard = '<div class="info-card"><div class="info-card-label">' + t(bi("Iconography", "아이코노그래피")) + "</div>" +
-      '<p style="font-size:13px;line-height:1.7;color:var(--muted-68);margin:0">' + t(KYOBO_STYLE.iconNote) + "</p></div>";
+      '<p style="font-size:13px;line-height:1.7;color:var(--muted-68);margin:0 0 16px">' + t(KYOBO_STYLE.iconNote) + "</p>" +
+      '<img src="images/kyobo-icons.png" alt="Icon set" style="width:100%;height:auto">' +
+      "</div>";
     return '<div class="two-col">' + colorCard + typoCard + "</div>" +
       '<div class="two-col" style="margin-top:20px">' + buttonCard + iconCard + "</div>";
   }
@@ -829,6 +831,7 @@
     var lead = '<div class="banner-lead"><div class="two-col">' +
       KYOBO_BANNER_LEAD.map(function (fn) { return '<img src="images/' + fn + '" alt="Banner design reference">'; }).join("") +
       "</div></div>";
+    var rowsTitle = '<div style="font-family:\'Noto Serif KR\',serif;font-weight:700;font-size:20px;margin:0 0 20px">' + t(bi("Renewal Design", "Renewal Design")) + "</div>";
     var rows = KYOBO_BANNER_ROWS.map(function (row) {
       var texts = row.items.map(function (it) {
         return '<div class="banner-row-text-item"><div class="label">' + t(it.label) + '</div><p>' + t(it.desc) + "</p></div>";
@@ -840,7 +843,7 @@
         "</div>"
       );
     }).join("");
-    return lead + rows;
+    return lead + rowsTitle + rows;
   }
 
   /* ------------------------------------------------------------------ */
@@ -1187,6 +1190,7 @@
       block(bi("Concept", "Concept"), null, kyoboConceptBlock()) +
       block(bi("Style Guide", "Style Guide"), null, kyoboStyleGuideBlock()) +
       block(bi("Banner Design", "Banner Design"), null, kyoboBannerSection()) +
+      block(L2.finaldesign, null, '<div class="showcase-stack"><img src="images/kyobo-final-1.jpg" alt="Final design"><img src="images/kyobo-final-2.jpg" alt="Final design full page"></div>') +
       block(L2.reflection, null, "") +
       reflectionBlock(KYOBO_REFLECTION) +
       behanceCta("kyobo") +
