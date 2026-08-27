@@ -419,17 +419,79 @@
     "A Kyobo Book Centre website that offers people in their 20s–30s who want to explore diverse digital content a clean, well-organized navigation and information structure.",
     "다양한 디지털 콘텐츠를 보고 싶은 2030에게 깔끔하게 정리된 네비게이션과 정보 분류를 제공하는 교보문고 웹사이트"
   );
-  var KYOBO_BANNER = [
-    { tag: bi("Search Box", "검색창"), desc: bi("Because the site holds such a large amount of content, I moved the search bar into the navigation so users can search the moment they land on the site.", "컨텐츠의 양이 방대하기 때문에 검색창을 네비게이션에 올려 사용자가 웹사이트에 들어오자마자 검색할 수 있도록 기획하였습니다."), images: ["kyobo-banner-search.jpg"] },
-    { tag: bi("Writing", "명칭 정리"), desc: bi("I renamed confusing service names like Toksoda, sam, and Story into more intuitive labels, and added a menu that introduces what each one means.", "톡소다, sam, 스토리 등 사용자들이 이해하기 어려워하는 명칭을 직관적으로 변경하고 명칭에 대해 소개하는 메뉴를 추가하였습니다.") },
-    { tag: bi("Banner Design", "배너 디자인"), desc: bi("I designed a rolling banner that introduces books.", "책을 소개하는 롤링 배너를 디자인했습니다."), images: ["kyobo-banner-rolling.jpg"] },
-    { tag: bi("Books", "책"), desc: bi("Showing Kyobo's wide range of content matters, but since this is fundamentally a bookstore site, I placed book content near the top.", "교보문고의 다양한 컨텐츠를 보여주는 것도 중요하지만 기본적으로 도서 사이트이기 때문에 책 콘텐츠를 상단에 배치했습니다."), images: ["kyobo-banner-books.jpg"] },
-    { tag: bi("PICKS", "PICKS"), desc: bi("I placed PICKS, a personalized book recommendation service, in the third row to show that Kyobo offers the kind of personalization video platforms are known for, strengthening its competitiveness.", "취향에 맞는 책 추천 서비스인 PICK를 3단에 배치하여 영상 컨텐츠 플랫폼에서 활용하는 개인화 서비스를 교보문고에서도 제공하고 있음을 알리고 경쟁력을 높이고자 하였습니다.") },
-    { tag: bi("Kyobo Live", "교보 Live"), desc: bi("I highlighted Kyobo Live to emphasize its role as a cultural hub, and surfaced related books alongside it so viewers could go on to purchase them.", "종합문화공간으로서의 면모를 강조하고 관련도서를 노출하여 책 구매로도 이어질 수 있도록 했습니다."), images: ["kyobo-banner-live.jpg"] },
-    { tag: bi("Web Novels", "웹소설"), desc: bi("Korea's web novel market has been steadily growing, and it grew even faster after COVID-19. To show that Kyobo also carries plenty of great web novels, I placed a web novel section in the fifth row.", "국내 웹소설 시장 규모는 점점 커지고 있으며 코로나19를 기점으로 훨씬 더 커졌습니다. 교보문고에도 재미있는 웹소설이 많음을 보여주고자 5단에 웹소설을 배치하였습니다."), images: ["kyobo-banner-webnovel.jpg"] },
-    { tag: bi("Story", "스토리"), desc: bi("Kyobo produces original content through a submission platform called Story, and some winning entries have already been adapted into dramas. I placed this in the sixth row to showcase the range of content Kyobo offers.", "교보문고는 스토리라는 공모 시스템을 통해 교보문고 오리지널 컨텐츠를 만듭니다. 이미 드라마로 만들어진 공모작이 존재합니다. 이를 6단에 배치하여 다양한 컨텐츠를 보여주고자 합니다.") },
-    { tag: bi("Review", "리뷰"), desc: bi("I surfaced book reviews in the seventh row so people can see what others are reading, share opinions on books, and get help deciding what to buy.", "사람들이 많이 읽는 책을 확인하고 책에 대한 의견을 나누며 구매에 도움이 될 수 있도록 책 리뷰를 7단에 노출하였습니다."), images: ["kyobo-banner-review.jpg"] },
-    { tag: bi("Footer", "푸터"), desc: bi("Since this is a book shopping site, I placed the essential elements it needs along with Kyobo's social channels and related sites in the footer to improve usability.", "도서 쇼핑몰이기 때문에 꼭 들어가야 하는 요소들과 교보 SNS, 관련 사이트를 푸터에 배치하여 사용성을 높였습니다."), images: ["kyobo-banner-footer.jpg"] }
+  var KYOBO_WEBSITE_PROBLEMS = [
+    bi("Hard-to-understand wording", "이해하기 어려운 표현"),
+    bi("Complex navigation", "복잡한 네비게이션"),
+    bi("Pop-ups that fill the screen", "화면을 가득 채우는 팝업"),
+    bi("Content built around print books", "종이책 위주의 콘텐츠 구성")
+  ];
+  var KYOBO_WEBSITE_SUMMARY = bi(
+    "Kyobo's existing website was built around print books, and confusing labels (like Toksoda, sam) for the e-book, web novel, and subscription services central to its digital shift were buried in the navigation.",
+    "교보문고 기존 웹사이트는 종이책 위주로 콘텐츠가 구성되어 있으며 디지털 전환에 핵심적인 웹소설과 웹툰, e-book 구독 시스템 등이 이해하기 어려운 표현(톡소다, sam)으로 네비게이션에 배치되어 있었습니다."
+  );
+  var KYOBO_SWOT = {
+    stats: [bi("Offline book sales declining", "오프라인책 판매량 감소"), bi("₩4.5B deficit (2020)", "45억 적자"), bi("Operates with Kyobo Life Insurance's support", "교보생명의 지원을 받으며 운영")],
+    strength: [bi("Korea's largest bookstore by scale", "국내 최대 규모의 서점"), bi("High brand awareness", "브랜드 인지도 높음"), bi("Responsive to social trends", "트렌디하게 사회 현상에 대응"), bi("Smart logistics system", "스마트물류시스템"), bi("Digital transformation underway", "디지털 전환")],
+    weakness: [bi("Operating at a deficit", "적자"), bi("Not a highly profitable business", "수익성이 크지 않은 사업")],
+    opportunity: [bi("Strong social influence", "사회적 영향력"), bi("Selected as a future heritage brand", "미래유산 선정"), bi("Rising popularity of e-books", "전자책 인기 상승")],
+    threat: [bi("Rising shipping costs", "배송비 인상"), bi("Decline of the publishing industry", "출판업계의 쇠퇴"), bi("Shrinking reading population", "독서인구 감소")]
+  };
+  var KYOBO_SWOT_SUMMARY = bi(
+    "Kyobo has strong brand awareness but is seen as a low-profit business. Combined with COVID-19, declining offline sales led to a ₩4.5B deficit in 2020, and the company now operates with support from Kyobo Life Insurance.",
+    "교보문고는 높은 브랜드 인지도를 가지고 있으나 수익성이 크지 않은 사업으로 평가받고 있으며 코로나19가 겹치면서 오프라인 책 판매량이 감소하여 2020년 45억 적자가 나서 현재는 교보생명의 지원을 받으며 운영되고 있습니다."
+  );
+  var KYOBO_DESK_SUMMARY = bi(
+    "Korean adults' reading rate is falling, but e-book reading is rising — and Kyobo's offline sales are declining while web and mobile purchases grow.",
+    "우리나라 성인의 독서율은 떨어지고 있지만 전자책 독서율은 늘어났으며, 교보문고의 오프라인 책 판매율은 감소하고 웹과 모바일을 통한 구매가 늘어나고 있습니다."
+  );
+  var KYOBO_INTERVIEW_INTRO = bi("I interviewed four people in their 20s and 30s who have used Kyobo Book Centre.", "교보문고를 이용해본 2030 4명을 대상으로 인터뷰를 진행했습니다.");
+  var KYOBO_INTERVIEW_INSIGHTS = [
+    bi("Most watched YouTube during their leisure time.", "대부분 여가시간에 유튜브를 이용했다."),
+    bi("They found Kyobo's site wording unintuitive and confusing.", "교보문고 사이트에서 직관적이지 않은 표현에 불편을 느꼈다."),
+    bi("They wanted Kyobo's information hierarchy and wording improved.", "교보문고 사이트에서 정보 위계와 라이팅이 개선되길 원한다.")
+  ];
+  var KYOBO_ASIS_TOBE = [
+    { asis: bi("Hard-to-understand category names", "알아보기 어려운 카테고리명"), tobe: bi("Intuitive naming", "직관적인 명칭") },
+    { asis: bi("Declining offline book sales", "오프라인 책 판매량 감소"), tobe: bi("A clean, well-organized online bookstore", "깔끔하게 정리된 온라인 도서 쇼핑몰") },
+    { asis: bi("Shrinking reading population", "독서인구 감소"), tobe: bi("A wide range of digital content", "다양한 디지털 콘텐츠") }
+  ];
+  var KYOBO_CONCEPT = [
+    { title: "Various", desc: bi("Showcased Kyobo's diverse content — web novels, e-books, Kyobo Live, and more.", "교보문고의 웹소설, E-book, 라이브 등 다양한 콘텐츠를 보여주었습니다.") },
+    { title: "Organized", desc: bi("Neatly organized a large volume of complex content.", "복잡하고 많은 컨텐츠를 깔끔하게 정리했습니다.") },
+    { title: "Friendly", desc: bi("Expressed the friendliness of a bookstore that has stood the test of time.", "오랫동안 자리를 지켜온 교보문고의 친근함을 표현하였습니다.") }
+  ];
+  var KYOBO_STYLE = {
+    colors: ["#D2E2D7", "#D6F2DB", "#34BE4E", "#F5F5F5", "#818181", "#525357"],
+    colorNote: bi("Since thumbnail colors vary widely across content, I used white as the base so content stays front and center, with gray as a supporting tone and Kyobo's core green as the accent.", "콘텐츠 섬네일의 색이 다양하기 때문에 컨텐츠가 최우선으로 보일 수 있도록 흰 바탕에 그레이를 주로 사용하고 교보문고의 메인 컬러인 초록색을 포인트 컬러로 활용하였습니다."),
+    typeNote: bi("Used the highly legible 본고딕 for body text, paired with Poppins and Pretendard for numerals and Latin text.", "가독성이 높은 본고딕을 본문에 사용하고 영문, 숫자는 본고딕과 잘 어울리는 포핀스와 프리텐다드를 사용하였습니다."),
+    buttonNote: bi("Used Kyobo's core green with rounded pill buttons to express Kyobo's friendliness.", "교보문고의 메인 컬러인 초록색을 사용하고 둥근 형태의 버튼을 제작하여 교보문고의 친근함을 표현하였습니다."),
+    buttons: [bi("View Details →", "자세히 보기 →"), bi("Watch Video →", "영상 바로가기 →")],
+    iconNote: bi("Used Kyobo's navy and green in a clean, friendly, rounded line-icon style.", "교보문고의 메인 컬러인 남색과 초록색을 사용하였고 깔끔함과 친근함을 위해 선 형태의 둥근 아이콘을 작업하였습니다.")
+  };
+  var KYOBO_BANNER_LEAD = ["kyobo-banner-billboard.jpg", "kyobo-banner-rolling.jpg"];
+  var KYOBO_BANNER_ROWS = [
+    { image: "kyobo-banner-search.jpg", items: [
+      { label: bi("Search Box", "검색창"), desc: bi("Because the site holds such a large amount of content, I moved the search bar into the navigation so users can search the moment they land on the site.", "컨텐츠의 양이 방대하기 때문에 검색창을 네비게이션에 올려 사용자가 웹사이트에 들어오자마자 검색할 수 있도록 기획하였습니다.") },
+      { label: bi("Writing", "명칭 정리"), desc: bi("I renamed confusing service names like Toksoda, sam, and Story into more intuitive labels, and added a menu that introduces what each one means.", "톡소다, sam, 스토리 등 사용자들이 이해하기 어려워하는 명칭을 직관적으로 변경하고 명칭에 대해 소개하는 메뉴를 추가하였습니다.") },
+      { label: bi("Banner Design", "배너 디자인"), desc: bi("I designed a rolling banner that introduces books.", "책을 소개하는 롤링 배너를 디자인했습니다.") }
+    ] },
+    { image: "kyobo-banner-books.jpg", items: [
+      { label: bi("Books", "책"), desc: bi("Showing Kyobo's wide range of content matters, but since this is fundamentally a bookstore site, I placed book content near the top.", "교보문고의 다양한 컨텐츠를 보여주는 것도 중요하지만 기본적으로 도서 사이트이기 때문에 책 콘텐츠를 상단에 배치했습니다.") }
+    ] },
+    { image: "kyobo-banner-live.jpg", items: [
+      { label: bi("PICKS", "PICKS"), desc: bi("I placed PICKS, a personalized book recommendation service, in the third row to show that Kyobo offers the kind of personalization video platforms are known for, strengthening its competitiveness.", "취향에 맞는 책 추천 서비스인 PICK를 3단에 배치하여 영상 컨텐츠 플랫폼에서 활용하는 개인화 서비스를 교보문고에서도 제공하고 있음을 알리고 경쟁력을 높이고자 하였습니다.") },
+      { label: bi("Kyobo Live", "교보 Live"), desc: bi("I highlighted Kyobo Live to emphasize its role as a cultural hub, and surfaced related books alongside it so viewers could go on to purchase them.", "종합문화공간으로서의 면모를 강조하고 관련도서를 노출하여 책 구매로도 이어질 수 있도록 했습니다.") }
+    ] },
+    { image: "kyobo-banner-webnovel.jpg", items: [
+      { label: bi("Web Novels", "웹소설"), desc: bi("Korea's web novel market has been steadily growing, and it grew even faster after COVID-19. To show that Kyobo also carries plenty of great web novels, I placed a web novel section in the fifth row.", "국내 웹소설 시장 규모는 점점 커지고 있으며 코로나19를 기점으로 훨씬 더 커졌습니다. 교보문고에도 재미있는 웹소설이 많음을 보여주고자 5단에 웹소설을 배치하였습니다.") }
+    ] },
+    { image: "kyobo-banner-review.jpg", items: [
+      { label: bi("Story", "스토리"), desc: bi("Kyobo produces original content through a submission platform called Story, and some winning entries have already been adapted into dramas. I placed this in the sixth row to showcase the range of content Kyobo offers.", "교보문고는 스토리라는 공모 시스템을 통해 교보문고 오리지널 컨텐츠를 만듭니다. 이미 드라마로 만들어진 공모작이 존재합니다. 이를 6단에 배치하여 다양한 컨텐츠를 보여주고자 합니다.") },
+      { label: bi("Review", "리뷰"), desc: bi("I surfaced book reviews in the seventh row so people can see what others are reading, share opinions on books, and get help deciding what to buy.", "사람들이 많이 읽는 책을 확인하고 책에 대한 의견을 나누며 구매에 도움이 될 수 있도록 책 리뷰를 7단에 노출하였습니다.") }
+    ] },
+    { image: "kyobo-banner-footer.jpg", items: [
+      { label: bi("Footer", "푸터"), desc: bi("Since this is a book shopping site, I placed the essential elements it needs along with Kyobo's social channels and related sites in the footer to improve usability.", "도서 쇼핑몰이기 때문에 꼭 들어가야 하는 요소들과 교보 SNS, 관련 사이트를 푸터에 배치하여 사용성을 높였습니다.") }
+    ] }
   ];
   var KYOBO_REFLECTION = [
     bi("In this project, I completed both the design and the publishing, then discovered a problem during the refinement stage that sent me back to the planning phase. Early on, following the same approach I'd used on other projects, I emphasized brand identity with a bold design that stretched the main visual wide across both sides of the screen. But when I applied the same approach to Kyobo, the core content — books — didn't get enough visibility.",
@@ -574,6 +636,211 @@
   function reflectionBlock(paragraphs) {
     var paras = paragraphs.map(function (p) { return "<p>" + t(p) + "</p>"; }).join("");
     return '<div class="detail-block reveal"><div class="reflection-card">' + paras + "</div></div>";
+  }
+
+  /* ---- Kyobo: hand-built charts + text components (no exported images) ---- */
+
+  function kyoboLegend(items) {
+    return '<div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px;font-size:11.5px;color:rgba(47,42,38,0.6)">' +
+      items.map(function (it) {
+        return '<span style="display:inline-flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:3px;background:' + it.color + ';display:inline-block;flex-shrink:0"></span>' + it.label + "</span>";
+      }).join("") + "</div>";
+  }
+
+  function kyoboLineChartSVG() {
+    var w = 300, h = 170, pad = 20;
+    var years = ["2013", "2015", "2017", "2019", "2021"];
+    var xs = years.map(function (_, i) { return pad + i * (w - 2 * pad) / (years.length - 1); });
+    var studentVals = [96.8, 95.3, 93.9, 92.6, 91.4];
+    var adultVals = [72.2, 65.4, 58.6, 52.6, 47.5];
+    var min = 40, max = 100;
+    function Y(v) { return pad + (1 - (v - min) / (max - min)) * (h - 2 * pad - 14); }
+    function ptsFor(vals) { return vals.map(function (v, i) { return xs[i] + "," + Y(v); }).join(" "); }
+    function dots(vals, color) {
+      return vals.map(function (v, i) { return '<circle cx="' + xs[i] + '" cy="' + Y(v) + '" r="3.5" fill="' + color + '"></circle>'; }).join("");
+    }
+    var labels = years.map(function (yr, i) { return '<text x="' + xs[i] + '" y="' + (h - 2) + '" font-size="10" fill="rgba(47,42,38,0.45)" text-anchor="middle">' + yr + "</text>"; }).join("");
+    return (
+      '<svg viewBox="0 0 ' + w + ' ' + h + '" style="width:100%;height:auto;display:block" role="img" aria-label="Reading rate trend">' +
+      '<polyline points="' + ptsFor(studentVals) + '" fill="none" stroke="#B7B2AC" stroke-width="2.5"></polyline>' +
+      '<polyline points="' + ptsFor(adultVals) + '" fill="none" stroke="#34BE4E" stroke-width="2.5"></polyline>' +
+      dots(studentVals, "#B7B2AC") + dots(adultVals, "#34BE4E") +
+      '<text x="' + xs[0] + '" y="' + (Y(studentVals[0]) - 8) + '" font-size="11" font-weight="700" fill="#918d88" text-anchor="middle">96.8</text>' +
+      '<text x="' + xs[4] + '" y="' + (Y(studentVals[4]) - 8) + '" font-size="11" font-weight="700" fill="#918d88" text-anchor="middle">91.4</text>' +
+      '<text x="' + xs[0] + '" y="' + (Y(adultVals[0]) + 16) + '" font-size="11" font-weight="700" fill="#1f9e3f" text-anchor="middle">72.2</text>' +
+      '<text x="' + xs[4] + '" y="' + (Y(adultVals[4]) - 8) + '" font-size="11" font-weight="700" fill="#1f9e3f" text-anchor="middle">47.5</text>' +
+      labels +
+      "</svg>"
+    );
+  }
+
+  function kyoboAgeBarChart() {
+    var rows = [
+      { age: "20대", v19: 39.0, v21: 50.5 },
+      { age: "30대", v19: 31.3, v21: 38.4 },
+      { age: "40대", v19: 14.4, v21: 13.8 },
+      { age: "50대", v19: 4.9, v21: 5.2 },
+      { age: "60대+", v19: 2.0, v21: 2.3 }
+    ];
+    var max = 55;
+    var cols = rows.map(function (r) {
+      var h19 = (r.v19 / max) * 100, h21 = (r.v21 / max) * 100;
+      return (
+        '<div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;min-width:0">' +
+        '<div style="display:flex;align-items:flex-end;gap:3px;height:100px">' +
+        '<div style="width:13px;background:#C9C5C0;border-radius:4px 4px 0 0;height:' + h19 + '%"></div>' +
+        '<div style="width:13px;background:#34BE4E;border-radius:4px 4px 0 0;height:' + h21 + '%"></div>' +
+        "</div>" +
+        '<div style="font-size:10px;font-weight:700;color:rgba(47,42,38,0.55);white-space:nowrap">' + r.v19 + "→" + r.v21 + "</div>" +
+        '<div style="font-size:11.5px;font-weight:600">' + r.age + "</div>" +
+        "</div>"
+      );
+    }).join("");
+    return '<div style="display:flex;gap:6px;align-items:flex-end">' + cols + "</div>";
+  }
+
+  function kyoboStackedTrend() {
+    var years = ["’16", "’17", "’18", "’19", "’20", "’21", "’22"];
+    var segs = [[55, 25, 20], [52, 24, 24], [50, 23, 27], [47, 22, 31], [43, 21, 36], [38, 21, 41], [34, 20, 46]];
+    var cols = years.map(function (yr, i) {
+      var s = segs[i];
+      return (
+        '<div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;min-width:0">' +
+        '<div style="display:flex;flex-direction:column-reverse;width:16px;height:100px;border-radius:4px;overflow:hidden">' +
+        '<div style="height:' + s[0] + '%;background:#34BE4E"></div>' +
+        '<div style="height:' + s[1] + '%;background:#C9C5C0"></div>' +
+        '<div style="height:' + s[2] + '%;background:#3A3733"></div>' +
+        "</div>" +
+        '<div style="font-size:10px;color:rgba(47,42,38,0.5)">' + yr + "</div>" +
+        "</div>"
+      );
+    }).join("");
+    return '<div style="display:flex;gap:5px;align-items:flex-end">' + cols + "</div>";
+  }
+
+  function kyoboDeskResearchBlock() {
+    return (
+      '<div class="three-col">' +
+      '<div class="info-card"><div class="info-card-label">' + t(bi("Reading Rate Trend (Students · Adults)", "독서율 변화 추이(성인·학생)")) + "</div>" +
+      kyoboLegend([{ color: "#B7B2AC", label: t(bi("Students", "학생")) }, { color: "#34BE4E", label: t(bi("Adults", "성인")) }]) +
+      kyoboLineChartSVG() +
+      '<p style="font-size:12.5px;line-height:1.65;color:var(--muted-68);margin-top:12px">' + t(bi("A 2021 survey of 6,000 Korean adults (19+) by the Ministry of Culture, Sports and Tourism found that adults' overall annual reading rate has been declining.", "최근 문화체육관광부가 만 19세 이상 성인 6천명을 대상으로 '2021년 국민 독서실태'를 조사한 결과, 우리나라 성인의 연간 종합 독서율은 떨어지는 추이를 보였다.")) + "</p>" +
+      "</div>" +
+      '<div class="info-card"><div class="info-card-label">' + t(bi("E-book Reading Rate by Age (Adults)", "연령별 전자책 독서율 변화(성인)")) + "</div>" +
+      kyoboLegend([{ color: "#C9C5C0", label: "2019" }, { color: "#34BE4E", label: "2021" }]) +
+      kyoboAgeBarChart() +
+      '<p style="font-size:12.5px;line-height:1.65;color:var(--muted-68);margin-top:14px">' + t(bi("While print reading declined, e-book reading rates trended upward.", "종이책 독서율은 낮아진 모습과 대조되게 전자책 독서율은 늘어나는 흐름을 보였다.")) + "</p>" +
+      "</div>" +
+      '<div class="info-card"><div class="info-card-label">' + t(bi("Kyobo Offline Book Sales Trend", "교보문고 오프라인 책 판매율 변화")) + "</div>" +
+      kyoboLegend([{ color: "#34BE4E", label: t(bi("In-store", "영업점")) }, { color: "#C9C5C0", label: t(bi("Web", "웹")) }, { color: "#3A3733", label: t(bi("Mobile", "모바일")) }]) +
+      kyoboStackedTrend() +
+      '<p style="font-size:12.5px;line-height:1.65;color:var(--muted-68);margin-top:12px">' + t(bi("Kyobo's offline book sales have been declining, while web and mobile purchases are growing.", "교보문고의 오프라인 책 판매율은 감소하고 웹과 모바일을 통한 구매가 늘어나고 있다.")) + "</p>" +
+      "</div>" +
+      "</div>" +
+      '<div class="callout-band">' + t(KYOBO_DESK_SUMMARY) + "</div>"
+    );
+  }
+
+  function kyoboSwotBlock() {
+    var statChips = '<div class="chip-row" style="margin-bottom:20px">' + KYOBO_SWOT.stats.map(function (s) { return '<div class="chip">' + t(s) + "</div>"; }).join("") + "</div>";
+    function quad(label, items, tint) {
+      return '<div style="background:' + tint + ';padding:22px 20px;border-radius:16px;min-width:0">' +
+        '<div style="font-weight:700;font-size:15px;margin-bottom:10px">' + label + "</div>" +
+        '<div style="display:flex;flex-direction:column;gap:6px">' + items.map(function (i) { return '<div style="font-size:12.5px;color:var(--muted-68)">' + t(i) + "</div>"; }).join("") + "</div>" +
+        "</div>";
+    }
+    var grid = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">' +
+      quad("Strength", KYOBO_SWOT.strength, "rgba(52,190,78,0.14)") +
+      quad("Weakness", KYOBO_SWOT.weakness, "rgba(47,42,38,0.05)") +
+      quad("Opportunity", KYOBO_SWOT.opportunity, "rgba(47,42,38,0.05)") +
+      quad("Threat", KYOBO_SWOT.threat, "rgba(52,190,78,0.14)") +
+      "</div>";
+    return statChips + grid + '<div class="callout-band" style="margin-top:20px">' + t(KYOBO_SWOT_SUMMARY) + "</div>";
+  }
+
+  function kyoboWebsiteAnalysisBlock() {
+    var cards = KYOBO_WEBSITE_PROBLEMS.map(function (p, i) {
+      return '<div class="decision-card reveal"><div class="decision-no">0' + (i + 1) + '</div><div><div class="t">' + t(p) + "</div></div></div>";
+    }).join("");
+    return cards + '<div class="callout-band" style="margin-top:6px">' + t(KYOBO_WEBSITE_SUMMARY) + "</div>";
+  }
+
+  function kyoboInterviewBlock() {
+    var items = KYOBO_INTERVIEW_INSIGHTS.map(function (ins) {
+      return '<div class="dark-card" style="flex:1 1 220px;min-width:0"><p style="color:#fff;font-weight:600">' + t(ins) + "</p></div>";
+    }).join("");
+    return '<p class="feature-desc" style="max-width:720px">' + t(KYOBO_INTERVIEW_INTRO) + "</p>" +
+      '<div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:6px">' + items + "</div>";
+  }
+
+  function kyoboTinyBox(label, text, tint) {
+    return '<div style="flex:1;min-width:0;background:' + tint + ';border-radius:16px;padding:16px 14px;text-align:center">' +
+      '<div style="font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:6px">' + label + "</div>" +
+      '<div style="font-size:13px;font-weight:600;line-height:1.4">' + text + "</div></div>";
+  }
+
+  function kyoboAsIsToBeBlock() {
+    var pairs = KYOBO_ASIS_TOBE.map(function (p) {
+      return (
+        '<div style="display:flex;align-items:center;gap:10px">' +
+        kyoboTinyBox("AS-IS", t(p.asis), "rgba(52,190,78,0.12)") +
+        '<div style="font-size:18px;color:var(--accent);flex-shrink:0">→</div>' +
+        kyoboTinyBox("TO-BE", t(p.tobe), "var(--bg)") +
+        "</div>"
+      );
+    }).join("");
+    return '<div style="display:flex;flex-direction:column;gap:14px">' + pairs + "</div>";
+  }
+
+  function kyoboConceptBlock() {
+    var cards = KYOBO_CONCEPT.map(function (c) {
+      return '<div class="info-card" style="text-align:center"><h4 style="margin:0 0 10px;font-size:18px;font-family:\'Noto Serif KR\',serif">' + c.title + "</h4><p style=\"margin:0;font-size:13.5px;line-height:1.7;color:var(--muted-68)\">" + t(c.desc) + "</p></div>";
+    }).join("");
+    return '<div class="three-col">' + cards + "</div>";
+  }
+
+  function kyoboStyleGuideBlock() {
+    var swatches = KYOBO_STYLE.colors.map(function (c) {
+      var light = (c === "#F5F5F5" || c === "#D2E2D7" || c === "#D6F2DB");
+      return '<div style="flex:1;min-width:84px;background:' + c + ";color:" + (light ? "#2f2a26" : "#fff") + ';border-radius:12px;padding:16px 10px;text-align:center;font-size:11px;font-weight:700">' + c + "</div>";
+    }).join("");
+    var colorCard = '<div class="info-card"><div class="info-card-label">' + t(bi("Color", "컬러")) + "</div>" +
+      '<p style="font-size:13px;line-height:1.7;color:var(--muted-68);margin:0 0 16px">' + t(KYOBO_STYLE.colorNote) + "</p>" +
+      '<div style="display:flex;gap:8px;flex-wrap:wrap">' + swatches + "</div></div>";
+    var typoCard = '<div class="info-card"><div class="info-card-label">' + t(bi("Typography", "타이포그래피")) + "</div>" +
+      '<p style="font-size:13px;line-height:1.7;color:var(--muted-68);margin:0 0 16px">' + t(KYOBO_STYLE.typeNote) + "</p>" +
+      '<div style="display:flex;flex-direction:column;gap:12px">' +
+      '<div style="font-size:24px;font-weight:700">본고딕 KR <span style="font-size:11px;font-weight:600;color:var(--muted-45)">KOR</span></div>' +
+      '<div style="font-size:24px;font-weight:700;font-family:\'Poppins\',sans-serif">Poppins <span style="font-size:11px;font-weight:600;color:var(--muted-45);font-family:inherit">ENG</span></div>' +
+      '<div style="font-size:24px;font-weight:700">Pretendard <span style="font-size:11px;font-weight:600;color:var(--muted-45)">ENG</span></div>' +
+      "</div></div>";
+    var buttonCard = '<div class="info-card"><div class="info-card-label">' + t(bi("Button", "버튼")) + "</div>" +
+      '<p style="font-size:13px;line-height:1.7;color:var(--muted-68);margin:0 0 16px">' + t(KYOBO_STYLE.buttonNote) + "</p>" +
+      '<div style="display:flex;gap:10px;flex-wrap:wrap">' +
+      KYOBO_STYLE.buttons.map(function (b) { return '<div style="background:#34BE4E;color:#fff;padding:10px 18px;border-radius:999px;font-size:12.5px;font-weight:700">' + t(b) + "</div>"; }).join("") +
+      "</div></div>";
+    var iconCard = '<div class="info-card"><div class="info-card-label">' + t(bi("Iconography", "아이코노그래피")) + "</div>" +
+      '<p style="font-size:13px;line-height:1.7;color:var(--muted-68);margin:0">' + t(KYOBO_STYLE.iconNote) + "</p></div>";
+    return '<div class="two-col">' + colorCard + typoCard + "</div>" +
+      '<div class="two-col" style="margin-top:20px">' + buttonCard + iconCard + "</div>";
+  }
+
+  function kyoboBannerSection() {
+    var lead = '<div class="banner-lead"><div class="two-col">' +
+      KYOBO_BANNER_LEAD.map(function (fn) { return '<img src="images/' + fn + '" alt="Banner design reference">'; }).join("") +
+      "</div></div>";
+    var rows = KYOBO_BANNER_ROWS.map(function (row) {
+      var texts = row.items.map(function (it) {
+        return '<div class="banner-row-text-item"><div class="label">' + t(it.label) + '</div><p>' + t(it.desc) + "</p></div>";
+      }).join("");
+      return (
+        '<div class="banner-row reveal">' +
+        '<div class="banner-row-texts">' + texts + "</div>" +
+        '<div><img src="images/' + row.image + '" alt="' + t(row.items[0].label) + '"></div>' +
+        "</div>"
+      );
+    }).join("");
+    return lead + rows;
   }
 
   /* ------------------------------------------------------------------ */
@@ -906,27 +1173,20 @@
   }
 
   function renderKyobo() {
-    var bannerBlocks = KYOBO_BANNER.map(function (b) {
-      if (b.images) {
-        return featureBoard({ tag: b.tag, title: bi("", ""), desc: b.desc, images: b.images });
-      }
-      return '<div class="detail-block reveal" style="margin-bottom:24px"><div class="feature-label">' + t(b.tag) + '</div><p class="feature-desc" style="max-width:640px;margin:0">' + t(b.desc) + "</p></div>";
-    }).join("");
-
     return (
       '<section class="detail-section">' +
       detailHeader("kyobo") +
       block(bi("Overview", "Overview"), null, '<p class="feature-desc" style="max-width:820px">' + t(KYOBO_OVERVIEW) + "</p>") +
-      block(bi("Desk Research", "Desk Research"), null, zoomImage("kyobo-desk-research.jpg", "Desk research")) +
-      block(bi("SWOT Analysis", "SWOT Analysis"), null, zoomImage("kyobo-swot.jpg", "SWOT analysis")) +
-      block(bi("Website Analysis", "웹사이트 분석"), null, zoomImage("kyobo-website-analysis.jpg", "Website analysis")) +
-      block(bi("Interview", "Interview"), null, zoomImage("kyobo-interview.jpg", "Interview affinity diagram")) +
-      block(bi("AS-IS → TO-BE", "AS-IS → TO-BE"), null, zoomImage("kyobo-as-is-to-be.jpg", "AS-IS to TO-BE")) +
+      block(bi("Desk Research", "Desk Research"), null, kyoboDeskResearchBlock()) +
+      block(bi("SWOT Analysis", "SWOT Analysis"), null, kyoboSwotBlock()) +
+      block(bi("Website Analysis", "웹사이트 분석"), null, kyoboWebsiteAnalysisBlock()) +
+      block(bi("Interview", "Interview"), null, kyoboInterviewBlock()) +
+      block(bi("AS-IS → TO-BE", "AS-IS → TO-BE"), null, kyoboAsIsToBeBlock()) +
       block(bi("Project Goal", "Project Goal"), null, '<div class="dark-card"><p style="font-size:16.5px;font-weight:600;line-height:1.7">' + t(KYOBO_GOAL) + "</p></div>") +
       block(bi("Wireframe", "Wireframe"), null, zoomImage("kyobo-wireframe.jpg", "Wireframe")) +
-      block(bi("Concept", "Concept"), null, zoomImage("kyobo-concept.jpg", "Concept")) +
-      block(bi("Style Guide", "Style Guide"), null, zoomImage("kyobo-style-guide.jpg", "Style guide")) +
-      block(bi("Banner Design", "Banner Design"), null, bannerBlocks) +
+      block(bi("Concept", "Concept"), null, kyoboConceptBlock()) +
+      block(bi("Style Guide", "Style Guide"), null, kyoboStyleGuideBlock()) +
+      block(bi("Banner Design", "Banner Design"), null, kyoboBannerSection()) +
       block(L2.reflection, null, "") +
       reflectionBlock(KYOBO_REFLECTION) +
       behanceCta("kyobo") +
