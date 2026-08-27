@@ -831,7 +831,7 @@
     var lead = '<div class="banner-lead"><div class="two-col">' +
       KYOBO_BANNER_LEAD.map(function (fn) { return '<img src="images/' + fn + '" alt="Banner design reference">'; }).join("") +
       "</div></div>";
-    var rowsTitle = '<div style="font-family:\'Noto Serif KR\',serif;font-weight:700;font-size:20px;margin:0 0 20px">' + t(bi("Renewal Design", "Renewal Design")) + "</div>";
+    var rowsTitle = '<div class="detail-h3">' + t(bi("Renewal Design", "Renewal Design")) + "</div>";
     var rows = KYOBO_BANNER_ROWS.map(function (row) {
       var texts = row.items.map(function (it) {
         return '<div class="banner-row-text-item"><div class="label">' + t(it.label) + '</div><p>' + t(it.desc) + "</p></div>";
@@ -843,7 +843,8 @@
         "</div>"
       );
     }).join("");
-    return lead + rowsTitle + rows;
+    var finalShowcase = '<div class="showcase-stack" style="margin-top:20px"><img src="images/kyobo-final-1.jpg" alt="Final design"><img src="images/kyobo-final-2.jpg" alt="Final design full page"></div>';
+    return lead + rowsTitle + rows + finalShowcase;
   }
 
   /* ------------------------------------------------------------------ */
@@ -1190,7 +1191,6 @@
       block(bi("Concept", "Concept"), null, kyoboConceptBlock()) +
       block(bi("Style Guide", "Style Guide"), null, kyoboStyleGuideBlock()) +
       block(bi("Banner Design", "Banner Design"), null, kyoboBannerSection()) +
-      block(L2.finaldesign, null, '<div class="showcase-stack"><img src="images/kyobo-final-1.jpg" alt="Final design"><img src="images/kyobo-final-2.jpg" alt="Final design full page"></div>') +
       block(L2.reflection, null, "") +
       reflectionBlock(KYOBO_REFLECTION) +
       behanceCta("kyobo") +
