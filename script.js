@@ -33,6 +33,11 @@
   var LINKEDIN = "https://www.linkedin.com/in/heeyeon-j";
   var CAREER_RESUME_URL = "career.html";
 
+  var DOWNLOAD_PORTFOLIO_LABEL = bi("Download Portfolio ↓", "포트폴리오 다운로드 ↓");
+  var DOWNLOAD_RESUME_LABEL = bi("Download Résumé PDF ↓", "이력서 PDF 다운로드 ↓");
+  function portfolioPdfHref() { return "downloads/portfolio_" + state.lang + ".pdf"; }
+  function resumePdfHref() { return "downloads/resume_" + state.lang + ".pdf"; }
+
   var BEHANCE_URLS = {
     maeari: { en: "https://www.behance.net/gallery/226604539/MAEARI-Hiking-community-app-UXUI-design", ko: "https://www.behance.net/gallery/173653843/Hiking-Community-App-MAEARI" },
     prime: { en: "https://www.behance.net/gallery/227152215/Amazon-Prime-Video-App-UXUI-Renewal-Project", ko: "https://www.behance.net/gallery/223563343/Amazon-Prime-Video-App-Renewal-Project-UXUI-Redesign" },
@@ -843,7 +848,9 @@
         "</div>"
       );
     }).join("");
-    var finalShowcase = '<div class="showcase-stack" style="margin-top:20px"><img src="images/kyobo-final-1.jpg" alt="Final design"><img src="images/kyobo-final-2.jpg" alt="Final design full page"></div>';
+    var finalShowcase = window.__PRINT_MODE__
+      ? '<div class="showcase-stack" style="margin-top:20px"><img src="images/kyobo-final-1.jpg" alt="Final design"></div>'
+      : '<div class="showcase-stack" style="margin-top:20px"><img src="images/kyobo-final-1.jpg" alt="Final design"><img src="images/kyobo-final-2.jpg" alt="Final design full page"></div>';
     return lead + rowsTitle + rows + finalShowcase;
   }
 
@@ -864,6 +871,7 @@
       '<div class="hero-ctas">' +
       '<a class="btn-light" href="' + BEHANCE + '" target="_blank" rel="noopener">Behance ↗</a>' +
       '<a class="btn-light" href="' + LINKEDIN + '" target="_blank" rel="noopener">LinkedIn ↗</a>' +
+      '<a class="btn-light" href="' + portfolioPdfHref() + '" download>' + t(DOWNLOAD_PORTFOLIO_LABEL) + "</a>" +
       "</div></div></section>" +
       '<section class="about-section reveal">' +
       '<div class="kicker">About</div>' +
@@ -908,7 +916,10 @@
       '<section class="career-hero reveal">' +
       '<div class="kicker">Career</div>' +
       '<div class="career-header-row"><h2 class="section-title serif" style="margin-bottom:0">' + t(CAREER_TITLE) + "</h2>" +
-      '<a class="back-btn" href="' + CAREER_RESUME_URL + '" target="_blank" style="margin-bottom:0">' + t(CAREER_VIEW_RESUME) + "</a></div>" +
+      '<div style="display:flex;gap:10px;flex-wrap:wrap">' +
+      '<a class="back-btn" href="' + CAREER_RESUME_URL + '" target="_blank" style="margin-bottom:0">' + t(CAREER_VIEW_RESUME) + "</a>" +
+      '<a class="back-btn" href="' + resumePdfHref() + '" download style="margin-bottom:0">' + t(DOWNLOAD_RESUME_LABEL) + "</a>" +
+      "</div></div>" +
       '<div class="career-meta"><span class="company">' + t(CAREER.company) + '</span><span class="role">' + t(CAREER.role) + '</span><span class="period">' + t(CAREER.period) + "</span></div>" +
       "<ul>" + CAREER.bullets.map(function (b) { return "<li>" + t(b) + "</li>"; }).join("") + "</ul>" +
       "</section>" +
@@ -1016,9 +1027,27 @@
       return '<button class="filter-pill' + (state.utTab === tb.id ? " active" : "") + '" onclick="app.setUtTab(\'' + tb.id + '\')">' + t(tb.label) + "</button>";
     }).join("");
     var activeTab = MAEARI_UT.tabs.filter(function (tb) { return tb.id === state.utTab; })[0] || MAEARI_UT.tabs[0];
-    var utItems = activeTab.items.map(function (it) {
-      return '<div class="info-card" style="padding:20px"><p style="margin:0 0 8px;font-size:13.5px;font-weight:700;color:var(--ink)">⚠ ' + t(it.problem) + '</p><p style="margin:0;font-size:13.5px;color:var(--accent-dark);font-weight:600">→ ' + t(it.solution) + "</p></div>";
-    }).join("");
+    function utItemsFor(tab) {
+      return tab.items.map(function (it) {
+        return '<div class="info-card" style="padding:20px"><p style="margin:0 0 8px;font-size:13.5px;font-weight:700;color:var(--ink)">⚠ ' + t(it.problem) + '</p><p style="margin:0;font-size:13.5px;color:var(--accent-dark);font-weight:600">→ ' + t(it.solution) + "</p></div>";
+      }).join("");
+    }
+    var utItems = utItemsFor(activeTab);
+    var utSection;
+    if (window.__PRINT_MODE__) {
+      utSection = MAEARI_UT.tabs.map(function (tb) {
+        return (
+          '<div style="margin-bottom:24px"><div class="filter-pill active" style="display:inline-block;margin-bottom:16px">' + t(tb.label) + "</div>" +
+          '<p style="font-size:14.5px;line-height:1.75;color:var(--muted-68);max-width:820px;margin:0 0 20px">' + t(tb.summary) + "</p>" +
+          '<div class="two-col">' + utItemsFor(tb) + "</div></div>"
+        );
+      }).join("");
+    } else {
+      utSection =
+        '<div class="filter-row">' + utTabs + "</div>" +
+        '<p style="font-size:14.5px;line-height:1.75;color:var(--muted-68);max-width:820px;margin:0 0 20px">' + t(activeTab.summary) + "</p>" +
+        '<div class="two-col">' + utItems + "</div>";
+    }
     var chips = MAEARI_LEVELS.map(function (l) { return { label: l.label, swatch: l.color }; });
 
     return (
@@ -1037,10 +1066,7 @@
         '<div><img src="images/maeari-cv-4.jpg" alt="Wireframe" style="border-radius:16px;border:1px solid var(--border-soft)"><p style="text-align:center;font-size:12.5px;color:var(--muted-45);margin-top:8px">Wireframe</p></div>' +
         '<div><img src="images/maeari-storyboard3.webp" alt="Story Board" style="border-radius:16px;border:1px solid var(--border-soft)"><p style="text-align:center;font-size:12.5px;color:var(--muted-45);margin-top:8px">Story Board</p></div>' +
         "</div>") +
-      block(L2.ut, null,
-        '<div class="filter-row">' + utTabs + "</div>" +
-        '<p style="font-size:14.5px;line-height:1.75;color:var(--muted-68);max-width:820px;margin:0 0 20px">' + t(activeTab.summary) + "</p>" +
-        '<div class="two-col">' + utItems + "</div>") +
+      block(L2.ut, null, utSection) +
       featureBoard({ tag: bi("Main Page", "메인 페이지"), title: bi("Hiking Info for Beginners", "초보자를 위한 등산 정보"), desc: bi("The main page provides guides and navigation for beginner hikers, along with course recommendations tailored to their level. The menu was designed as a bottom tab so users can check it easily on the trail.", "메인 페이지에서는 등산 초보자를 위한 가이드와 네비게이션, 레벨에 맞는 코스 추천 기능을 제공합니다. 사용자가 메뉴를 쉽게 확인할 수 있는 Bottom tab 형태로 구성했습니다."), chips: chips, images: ["maeari-feat-hiking2.webp"] }) +
       featureBoard({ tag: bi("Navigation", "내비게이션"), title: bi("Course Info With GPS", "GPS 코스 정보"), desc: bi("You can check your current location and the direction you need to go on the map, and see previously searched courses at a glance.", "현재 내가 있는 위치와 앞으로 가야 할 방향을 지도로 확인할 수 있으며 그 전에 검색한 코스까지 한눈에 볼 수 있습니다."), images: ["maeari-feat-gps2.webp"] }) +
       featureBoard({ tag: bi("Friend", "친구"), title: bi("Make Friends like Me", "나와 닮은 친구 만들기"), desc: bi("By categorizing location, age, hiking level, and gender, you can meet hiking friends who match you well.", "사는 지역, 나이, 등산 레벨, 성별을 카테고리화하여 나와 잘 맞는 등산 친구를 만날 수 있습니다."), bullets: [
@@ -1048,7 +1074,7 @@
         bi("Enter your location and set a range to search for friends within that area.", "내가 살고 있는 지역을 입력하고 범위를 설정하면 그 지역 내에서 친구가 검색됩니다."),
         bi("The manner-score system provides an indicator to check the other person before meeting offline.", "매너점수 시스템으로 오프라인 만남 전에 상대방을 확인할 수 있는 지표를 마련했습니다.")
       ], images: ["maeari-friend-list.webp", "maeari-friend-profile.webp"] }) +
-      '<div class="detail-hero reveal"><img src="images/maeari-sg-4.jpg" alt="Friend screens"></div>' +
+      (window.__PRINT_MODE__ ? "" : '<div class="detail-hero reveal"><img src="images/maeari-sg-4.jpg" alt="Friend screens"></div>') +
       featureBoard({ tag: bi("Photo", "사진"), title: bi("Take Pictures of Beautiful Places", "아름다운 장소 사진 촬영"), desc: bi("You can take and upload hiking verification photos with beautiful mountain scenery as the background.", "멋진 산의 풍경을 배경으로 등산 인증샷을 촬영하고 업로드할 수 있습니다."), bullets: [
         bi("Users can also upload photos they've already taken.", "사용자가 미리 찍어둔 사진도 업로드할 수 있습니다."),
         bi("You can upload multiple images. When uploading several, only the first photo appears in the preview.", "여러 장의 이미지를 업로드할 수 있습니다. 여러 장을 업로드할 경우 맨 첫번째 사진만 미리보기에 표시됩니다.")
@@ -1155,7 +1181,9 @@
     var decisionCards = KEPCO_DECISIONS.map(function (d, i) {
       return '<div class="decision-card reveal"><div class="decision-no">0' + (i + 1) + '</div><div><div class="t">' + t(d.title) + "</div><p>" + t(d.body) + "</p></div></div>";
     }).join("");
-    var showcase = KEPCO_SHOWCASE.map(function (fn) {
+    var showcase = KEPCO_SHOWCASE.filter(function (fn) {
+      return !(window.__PRINT_MODE__ && fn === "kepco-showcase-5.jpg");
+    }).map(function (fn) {
       return '<img src="images/' + fn + '" alt="KEPCO final design">';
     }).join("");
 

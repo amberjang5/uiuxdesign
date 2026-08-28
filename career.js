@@ -28,7 +28,8 @@
     education: bi("Education & Certifications", "학력 & 자격"),
     backLink: bi("← Portfolio", "← 포트폴리오"),
     task: bi("Task", "Task"),
-    result: bi("Result", "Result")
+    result: bi("Result", "Result"),
+    downloadPdf: bi("Download PDF ↓", "PDF 다운로드 ↓")
   };
 
   var ABOUT_BODY = bi(
@@ -134,7 +135,8 @@
       contact.innerHTML =
         '<a href="mailto:' + t(EMAIL) + '">' + t(EMAIL) + "</a>" +
         '<a href="' + BEHANCE + '" target="_blank" rel="noopener">Behance ↗</a>' +
-        '<a href="' + LINKEDIN + '" target="_blank" rel="noopener">LinkedIn ↗</a>';
+        '<a href="' + LINKEDIN + '" target="_blank" rel="noopener">LinkedIn ↗</a>' +
+        '<a class="pdf-download-link" href="downloads/resume_' + state.lang + '.pdf" download>' + t(LABELS.downloadPdf) + "</a>";
     }
     var roleEl = document.getElementById("resumeRole");
     if (roleEl) roleEl.textContent = t(LABELS.role);
