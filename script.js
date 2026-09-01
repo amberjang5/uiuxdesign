@@ -968,11 +968,21 @@
     );
   }
 
+  function eduSortKey(y) {
+    var m = /^(\d{4})(?:[.](\d{2}))?/.exec(y);
+    if (!m) return 0;
+    var year = parseInt(m[1], 10);
+    var month = m[2] ? parseInt(m[2], 10) : 1;
+    return year * 100 + month;
+  }
+
   function renderEducation() {
     var filters = EDU_FILTERS.map(function (f) {
       return '<button class="filter-pill' + (state.eduFilter === f.id ? " active" : "") + '" onclick="app.setEduFilter(\'' + f.id + '\')">' + t(f.label) + "</button>";
     }).join("");
-    var list = EDU.filter(function (e) { return state.eduFilter === "all" || e.cat === state.eduFilter; });
+    var list = EDU.filter(function (e) { return state.eduFilter === "all" || e.cat === state.eduFilter; })
+      .slice()
+      .sort(function (a, b) { return eduSortKey(a.year) - eduSortKey(b.year); });
     var items = list.map(function (e) {
       return (
         '<div class="edu-item reveal"><div class="edu-dot"></div>' +
