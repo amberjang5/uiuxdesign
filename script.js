@@ -615,10 +615,14 @@
     var cells = opts.steps.map(function (s, i) {
       var imgs = (s.imgs || [s.img]).map(function (im) { return '<img src="images/' + im + '" alt="" style="width:' + (100 / (s.imgs ? s.imgs.length : 1)) + '%">'; }).join("");
       var imgWrap = s.imgs ? '<div style="display:flex;gap:8px;justify-content:center;width:100%">' + imgs + "</div>" : imgs;
+      var body = s.bullets
+        ? '<div class="step-body">' + (s.sub ? '<div class="step-sub">' + t(s.sub) + "</div>" : "") +
+          '<ul class="step-bullets">' + s.bullets.map(function (b) { return "<li>" + t(b) + "</li>"; }).join("") + "</ul></div>"
+        : "<p>" + t(s.text) + "</p>";
       return (
         '<div class="step-cell">' + imgWrap +
         '<div class="step-cap">' + (opts.numbered !== false ? '<div class="step-no">' + String(i + 1).padStart(2, "0") + "</div>" : "") +
-        "<p>" + t(s.text) + "</p></div></div>"
+        body + "</div></div>"
       );
     }).join("");
     return (
@@ -1156,12 +1160,24 @@
           { img: "prime-profile-3.webp", text: bi("Set a password so shared users can't access your profile or watch history.", "공유 사용자가 내 프로필에 접속할 수 없도록 비밀번호를 설정해 보세요.") },
           { img: "prime-profile-4.webp", text: bi("Your profile is created! Ready to enjoy Amazon Prime Video?", "프로필 생성이 완료되었어요! 이제 아마존 프라임 비디오를 즐기러 가 볼까요?") }
         ] }) +
-      stepBoard({ tag: L2.contents_board, title: bi("Content You Can Enjoy at a Glance", "한눈에 즐기는 콘텐츠"), cols: 3, numbered: false,
+      stepBoard({ tag: L2.contents_board, title: bi("Content You Can Enjoy at a Glance", "한눈에 즐기는 콘텐츠"), cols: 4, numbered: false,
         desc: bi("See interesting content across movies, TV shows, sports, and more at a glance, and jump straight into whatever you want to watch.", "영화, TV쇼, 스포츠 등 다양한 분야의 재미있는 콘텐츠를 한눈에 확인하고, 원하는 작품을 바로 선택할 수 있어요."),
         steps: [
-          { img: "prime-contents-1.webp", text: bi("Already watching something? Pick up where you left off.", "이미 시청 중인 콘텐츠가 있다면 이어서 감상해보세요.") },
-          { img: "prime-contents-3.webp", text: bi("Choose Movies, TV Shows, Originals, Sports, or Kids, and pick a genre easily from text-style buttons.", "영화, TV쇼, 오리지널, 스포츠, 키즈 탭으로 유형을 고르고, 텍스트 버튼으로 장르도 쉽게 골라보세요.") },
-          { img: "prime-contents-2.webp", text: bi("Want a quick trailer? Check out short-form previews in Featured Preview.", "짧은 예고편을 보고 싶다면 Featured preview에서 숏폼 형태로 볼 수 있어요.") }
+          { img: "prime-contents-1.webp", sub: bi("Home", "Home"), bullets: [
+            bi("On Home, choose the type of content you want from the Movies, TV Shows, Originals, Sports, and Kids tabs.", "홈에서는 영화, TV쇼, 오리지널 콘텐츠, 스포츠, 키즈 탭으로 원하는 콘텐츠 유형을 선택할 수 있어요."),
+            bi("Already watching something? Pick up where you left off in What You've Been Watching.", "이미 시청 중인 콘텐츠가 있다면 What you've been watching에서 이어서 감상해보세요.")
+          ] },
+          { img: "prime-contents-2.webp", bullets: [
+            bi("Recommended content is surfaced by genre so you can easily find something that fits your taste.", "취향에 맞는 콘텐츠를 찾을 수 있도록 다양한 장르별로 추천 콘텐츠를 노출했어요."),
+            bi("Want a quick trailer? Check out short-form previews in Featured Preview.", "짧은 예고편을 보고 싶다면 Featured preview에서 숏폼 형태로 볼 수 있어요.")
+          ] },
+          { img: "prime-contents-3.webp", sub: bi("Movie", "Movie"), bullets: [
+            bi("In the mood for a movie today? Head to the Movies page to start watching.", "오늘은 영화를 보고싶다면? 영화 페이지에서 감상해보세요."),
+            bi("Choose the genre you're after — Action, Romance, Horror, and more.", "액션, 로맨스, 호러 등 원하는 장르를 선택할 수 있어요.")
+          ] },
+          { img: "prime-contents-4.webp", sub: bi("Sports", "Sports"), bullets: [
+            bi("On the Sports page made for sports fans, check scores and highlight clips for football, basketball, racing, and more.", "스포츠 팬을 위한 스포츠 페이지에서 풋볼, 농구, 레이싱 등 원하는 종목의 스코어와 하이라이트 영상을 확인해 보세요.")
+          ] }
         ] }) +
       stepBoard({ tag: L2.vd_board, title: bi("Watch Instantly, Anytime, Anywhere", "언제 어디서나 즉시 감상"), cols: 3, numbered: false,
         desc: bi("Enjoy the content you want to watch right away. If you'd like smooth playback regardless of your internet connection, downloading it ahead of time is a great option.", "보고 싶은 콘텐츠를 즉시 즐겨보세요. 인터넷 환경에 상관없이 원활한 시청을 원한다면, 미리 기기에 다운로드해두는 것도 좋은 방법이에요."),
