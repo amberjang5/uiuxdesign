@@ -1203,13 +1203,21 @@
 
   function renderKepco() {
     var probItems = bulletList(KEPCO_PROBLEMS);
-    var solItems = '<div class="bullets" style="color:rgba(255,253,250,0.85)">' + KEPCO_SOLUTIONS.map(function (s) { return "<div>" + t(s) + "</div>"; }).join("") + "</div>";
+    var solItems = '<div class="info-card-label">' + t(bi("Solution", "솔루션")) + '</div><div class="bullets" style="color:rgba(255,253,250,0.85)">' + KEPCO_SOLUTIONS.map(function (s) { return "<div>" + t(s) + "</div>"; }).join("") + "</div>";
     var decisionCards = KEPCO_DECISIONS.map(function (d, i) {
       return '<div class="decision-card reveal"><div class="decision-no">0' + (i + 1) + '</div><div><div class="t">' + t(d.title) + "</div><p>" + t(d.body) + "</p></div></div>";
     }).join("");
     var showcase = KEPCO_SHOWCASE.filter(function (fn) {
       return !(window.__PRINT_MODE__ && fn === "kepco-showcase-5.jpg");
     }).map(function (fn) {
+      if (fn === "kepco-showcase-3.jpg") {
+        return (
+          '<div class="kepco-pair-wrap">' +
+          '<div class="kepco-pair-item"><div class="feature-label">' + t(bi("Light Mode", "라이트 모드")) + '</div><img src="images/kepco-showcase-3.jpg" alt="KEPCO final design, light mode"></div>' +
+          '<div class="kepco-pair-item"><div class="feature-label">' + t(bi("Dark Mode", "다크 모드")) + '</div><img src="images/kepco-showcase-3-dark.jpg" alt="KEPCO final design, dark mode"></div>' +
+          "</div>"
+        );
+      }
       return '<img src="images/' + fn + '" alt="KEPCO final design">';
     }).join("");
 
